@@ -4,7 +4,7 @@ LD = ld
 
 SRCDIR := c-src
 OBJDIR := objects
-MD4CDIR := submodules/md4c/src
+MD4CDIR := md4c/src
 
 CFLAGS = -I./$(MD4CDIR) -std=c99 -Wall -Werror -Wextra -Wpedantic
 MD4C_FLAGS = -Wno-overflow

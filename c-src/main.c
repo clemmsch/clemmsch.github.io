@@ -26,8 +26,9 @@ int file_exists(char* path);
 int create_neccessary_files();
 int read_file(char* path, char** buffer);
 char* concat_strings(char* str1, char* str2);
-char** get_markdown_dirs();
 
+// Counts the total size of the website
+int total_size_of_site = 0;
 
 
 /***************************
@@ -108,6 +109,14 @@ void die(int code, char* format, ...) {
 out:
     va_end(args);
     exit(code);
+}
+
+int get_file_size(char* path) {
+    FILE* fp = fopen(path, "r");
+    VERIFY_PTR(fp)
+    fseek (fp, 0, SEEK_END);
+    int length = ftell (fp);
+    return length;
 }
 
 int read_file(char* path, char** buffer) {
@@ -229,6 +238,13 @@ int walk_dir_for_md_files(char* dir) {
         // WRITE FOOTER
         fputs(html_post_footer, out_file);
         printf("Converted blog entry %s\n", md_files[i]);
+
+        // Get File Size
+        fseek (out_file, 0, SEEK_END);
+        int length = ftell (out_file);
+        total_size_of_site += length;
+
+
         fclose(out_file);
     }
 
@@ -240,6 +256,12 @@ int walk_dir_for_md_files(char* dir) {
 
 
 int main() {
+    total_size_of_site += get_file_size("prism.css");
+    total_size_of_site += get_file_size("style.css");
+    total_size_of_site += get_file_size("index.html");
+    total_size_of_site += get_file_size("header.html");
+    total_size_of_site += get_file_size("footer.html");
+    total_size_of_site += get_file_size("prism.js");
     create_neccessary_files();
     char** dirs = calloc(FILES_PER_DIR_MAX, sizeof(char*) + 1);
     // We trust that everything in 'content' is a directory
@@ -249,6 +271,7 @@ int main() {
     for (int i = 0; i < num_dirs; i++) {
         walk_dir_for_md_files(dirs[i]);
     }
+    printf("Current total size of site: %db, %dkb, %dmb\n", total_size_of_site, total_size_of_site / 1024, total_size_of_site / 1024 / 1024);
 
     return 0;
 }
