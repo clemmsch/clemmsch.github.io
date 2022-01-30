@@ -1,0 +1,133 @@
+.badge {
+    text-align: center;
+}
+
+.date {
+    font-style: italic;
+    color: gray;
+}
+
+.image {
+    display: block;
+    width: 320px;
+    border: none;
+}
+
+img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    border: 1px dotted gray;
+    margin-bottom: 20px;
+}
+
+p {
+    text-align: justify;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.topics {
+    text-align: center;
+    font-size: 1rem;
+}
+
+h2:before {
+    content: "¶ ";
+    color: gray; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.topics {
+    font-family:'Roboto Condensed', sans-serif; 
+}
+
+h1:hover,
+h2:hover,
+h3:hover {
+    text-decoration: underline;
+    color: gray;
+}
+
+a:hover {
+    background-color: palegoldenrod;
+}
+
+blockquote {
+    font-style: italic;
+    color: dimgray;
+    text-align: center;
+}
+
+blockquote p {
+    position: relative;
+    top: 30px;
+    margin-left: 50px;
+}
+
+blockquote::before {
+    position: justify;
+    content: "\201C";
+    font-size: 20px;
+}
+
+.articles {
+    padding: 1px;
+    border-style: solid;
+    border-width: 0px 0px 0px 10px;
+    border-color: palegoldenrod;
+    margin-bottom: 20px;
+}
+
+blockquote::after {
+    position: justify;
+    content: "\201C";
+    font-size: 20px;
+}
+
+
+
+ul,
+ol {
+    text-align: justify;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.quote-author {
+    text-align: center;
+    font-family: 'Luxurious Roman', cursive;
+    margin-top: -15px;
+    margin-bottom: 55px;
+    font-style: italic;
+}
+
+.quote-author:before {
+    content: "— ";
+}
+
+body {
+    background-color: #eee8d5;
+}
+
+.category {
+    font-weight: bold;
+    color: gray;
+}
+
+.category::before {
+    font-style: italic;
+    font-weight: lighter;
+    content: "in "
+}
