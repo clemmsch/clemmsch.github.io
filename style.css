@@ -23,6 +23,16 @@ img {
 
 p {
     text-align: justify;
+    font-family: "Iosevka Web";
+    margin-right: 20%;
+    margin-left: 20%;
+    line-height: 150%;
+    font-size: 150%;
+}
+
+a {
+    font-family: "Iosevka Web";
+    font-size: 160%;
 }
 
 h1 {
